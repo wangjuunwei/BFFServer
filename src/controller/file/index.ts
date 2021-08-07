@@ -34,22 +34,6 @@ export class FileController extends FileControllerType {
 
   @Post('/uploadfile')
   public async uploadfile() {
-    // const { ctx } = this;
-    // console.log(ctx.request);
-    // const file = ctx.request.files[0];
-    // const { hash, name } = ctx.request.body;
-    //
-    // const chunkPath = path.resolve('public/uploads', hash);
-    // if (!fse.existsSync(chunkPath)) {
-    //   await fse.mkdir(chunkPath);
-    // }
-    //
-    // await fse.move(file.filepath, `${chunkPath}/${name}`);
-    //
-    // return this.message('切片上传成功');
-    if (Math.random() > 0.7) {
-      return this.error('上传失败');
-    }
     const stream = await this.ctx.getFileStream();
 
     const { hash, name } = stream.fields;
